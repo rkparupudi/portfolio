@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajanikanth Parupudi — Engineering Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --paper: #f7f5f0;
+    --accent: #1a4fd6;
+    --accent2: #c8401a;
+    --muted: #6b7280;
+    --border: #e2ddd6;
+    --card: #ffffff;
+    --tag-bg: #eef2ff;
+    --tag-color: #1a4fd6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+
+  .hero-left {
+    padding: 80px 64px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .hero-name span {
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--ink);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+
+  .hero-desc strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: #1340b0;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(26,79,214,0.25);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1.5px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-right {
+    padding: 80px 80px 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: all 0.2s;
+  }
+
+  .stat-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(26,79,214,0.08);
+    transform: translateX(4px);
+  }
+
+  .stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .icon-blue { background: #eef2ff; }
+  .icon-red { background: #fef3f0; }
+  .icon-green { background: #f0fdf4; }
+  .icon-amber { background: #fffbeb; }
+
+  .stat-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-content p {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 80px;
+  }
+
+  section:nth-child(even) {
+    background: var(--card);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 48px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 64px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-text strong { color: var(--accent); font-weight: 500; }
+
+  .skills-column h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .skill-group {
+    margin-bottom: 28px;
+  }
+
+  .skill-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tag.red { background: #fef3f0; color: var(--accent2); }
+  .tag.green { background: #f0fdf4; color: #166534; }
+  .tag.amber { background: #fffbeb; color: #92400e; }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .project-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fef3f0;
+    color: var(--accent2);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .project-badge.ai { background: #eef2ff; color: var(--accent); }
+  .project-badge.ml { background: #f0fdf4; color: #166534; }
+  .project-badge.platform { background: #fffbeb; color: #92400e; }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .project-highlights {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+
+  .project-highlights li {
+    font-size: 14px;
+    color: var(--ink);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .project-highlights li:last-child { border-bottom: none; }
+
+  .project-highlights li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .project-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .stack-tag {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 56px;
+    padding-left: 32px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -39px; top: 8px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 2px solid var(--accent);
+  }
+
+  .timeline-item:first-child::before {
+    background: var(--accent);
+  }
+
+  .timeline-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+
+  .timeline-company {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .timeline-desc {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+
+  .timeline-metrics {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+
+  .metric-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .metric-label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  /* BLOG */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .blog-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .blog-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 32px rgba(26,79,214,0.08);
+    transform: translateY(-2px);
+  }
+
+  .blog-category {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .blog-excerpt {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .blog-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .blog-coming-soon {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .coming-soon-badge {
+    display: inline-block;
+    background: var(--border);
+    color: var(--muted);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .contact-section .section-label { color: #6b9fff; }
+  .contact-section .section-label::after { background: #6b9fff; }
+  .contact-section .section-title { color: var(--paper); }
+  .contact-section .section-subtitle { color: #9ca3af; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--paper);
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.25);
+    transform: translateX(4px);
+  }
+
+  .contact-link-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-link-text {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .contact-link-sub {
+    font-size: 13px;
+    color: #9ca3af;
+    font-family: 'DM Mono', monospace;
+    margin-top: 2px;
+  }
+
+  .resume-cta {
+    background: rgba(26,79,214,0.15);
+    border: 1px solid rgba(26,79,214,0.3);
+    border-radius: 12px;
+    padding: 48px;
+    text-align: center;
+  }
+
+  .resume-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .resume-cta p {
+    font-size: 15px;
+    color: #9ca3af;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+
+  .btn-white {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 14px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-white:hover {
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080b12;
+    color: #4b5563;
+    text-align: center;
+    padding: 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-name { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-title { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-desc { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-actions { animation: fadeUp 0.6s ease 0.4s both; }
+  .stat-card:nth-child(1) { animation: fadeUp 0.6s ease 0.2s both; }
+  .stat-card:nth-child(2) { animation: fadeUp 0.6s ease 0.3s both; }
+  .stat-card:nth-child(3) { animation: fadeUp 0.6s ease 0.4s both; }
+  .stat-card:nth-child(4) { animation: fadeUp 0.6s ease 0.5s both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 32px 40px; }
+    .hero-left::after { display: none; }
+    .hero-right { padding: 0 32px 60px; }
+    section { padding: 80px 32px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; gap: 24px; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">RP</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Engineering Manager · Bangalore, India</div>
+    <h1 class="hero-name">Rajani<span>kanth</span><br>Parupudi</h1>
+    <p class="hero-title">Distributed Systems · Identity · Cloud-Native AI</p>
+    <p class="hero-desc">
+      23 years building platforms that <strong>don't fail</strong>. Engineering leader with deep roots in IAM, distributed systems, and cloud-native architecture — shipping production AI features while leading high-performing teams.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View My Work →</a>
+      <a href="#contact" class="btn-secondary">Download Resume</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-icon icon-blue">⚡</div>
+      <div class="stat-content">
+        <h3>23+</h3>
+        <p>Years in software engineering & leadership</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon icon-red">🔒</div>
+      <div class="stat-content">
+        <h3>10M+</h3>
+        <p>Identity records processed monthly at 99.9% uptime</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon icon-green">🚀</div>
+      <div class="stat-content">
+        <h3>70%</h3>
+        <p>Reliability improvement through architectural redesign</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon icon-amber">🤖</div>
+      <div class="stat-content">
+        <h3>2</h3>
+        <p>Production AI/ML features shipped — RAG + ML pipeline</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Builder. Leader.<br>Identity Architect.</h2>
+  <p class="section-subtitle">23 years across fintech, telecom, SaaS, and cloud-native platforms.</p>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I spent five years at Aquera Labs architecting and owning an enterprise IAM orchestration platform — 
+        a <strong>multi-tenant, fault-tolerant system</strong> processing 10M+ identity records monthly across 
+        5,000+ concurrent integration jobs. I did not just lead this platform — I coded it daily.
+      </p>
+      <p>
+        I hand-built a <strong>SCIM 2.0 filter parser from the RFC 7644 specification</strong>, implementing 
+        full AST construction and interpretation. I designed distributed coordination primitives using Redis — 
+        leader election, distributed mutex, pub/sub cancellation, heartbeat-based zombie detection. 
+        I shipped production AI features using <strong>AWS Bedrock and RAG</strong>.
+      </p>
+      <p>
+        Before Aquera: I architected a telecom platform for <strong>30M+ users at SinarMas</strong>, led 
+        engineering for <strong>core banking used by 300+ banks at FIS</strong>, and built teams of 8–25 
+        engineers across Capgemini, KPIT, CGI, and IBM.
+      </p>
+      <p>
+        I hold an <strong>M.Tech from NIT Calicut</strong> and am based in Bangalore, India — open to 
+        hybrid and remote EM and Principal Architect roles in IAM, platform engineering, and cloud-native SaaS.
+      </p>
+    </div>
+
+    <div class="skills-column">
+      <h3>Technical Depth</h3>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Identity & IAM</div>
+        <div class="tags">
+          <span class="tag">SCIM 2.0</span>
+          <span class="tag">OAuth 2.0</span>
+          <span class="tag">OData</span>
+          <span class="tag">OpenAPI</span>
+          <span class="tag">Entra ID</span>
+          <span class="tag">FIDO2</span>
+          <span class="tag">RBAC</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Stack</div>
+        <div class="tags">
+          <span class="tag red">Node.js</span>
+          <span class="tag red">Java</span>
+          <span class="tag red">Spring Boot</span>
+          <span class="tag red">Python</span>
+          <span class="tag red">Angular</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Cloud & AI</div>
+        <div class="tags">
+          <span class="tag green">AWS Bedrock</span>
+          <span class="tag green">RAG</span>
+          <span class="tag green">Lambda</span>
+          <span class="tag green">DynamoDB</span>
+          <span class="tag green">Kafka</span>
+          <span class="tag green">Redis</span>
+          <span class="tag green">Docker</span>
+          <span class="tag green">Kubernetes</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Domains</div>
+        <div class="tags">
+          <span class="tag amber">IAM</span>
+          <span class="tag amber">Fintech</span>
+          <span class="tag amber">CPaaS</span>
+          <span class="tag amber">SaaS</span>
+          <span class="tag amber">Core Banking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">What I've Built</h2>
+  <p class="section-subtitle">Production systems — not side projects. Each one shipped, monitored, and owned.</p>
+
+  <div class="projects-grid">
+
+    <!-- Featured: Aquera Assistant -->
+    <div class="project-card featured">
+      <div>
+        <div class="project-badge ai">⚡ Generative AI · Production</div>
+        <h3 class="project-title">Aquera Assistant — RAG-based Integration Code Generator</h3>
+        <p class="project-desc">
+          A production Retrieval-Augmented Generation system that generates executable SCIM integration code from natural language. 
+          Built on AWS Bedrock — dynamically retrieves source and destination application metadata, injects it as context into the LLM prompt, 
+          and returns ready-to-run integration code. Enterprise users type "Get all active users from Okta" and receive executable code automatically.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">AWS Bedrock</span>
+          <span class="stack-tag">RAG</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">SCIM 2.0</span>
+          <span class="stack-tag">DynamoDB</span>
+          <span class="stack-tag">REST API</span>
+        </div>
+      </div>
+      <div>
+        <ul class="project-highlights">
+          <li>Dynamic metadata retrieval — source and destination app context injected at inference time</li>
+          <li>Natural language to executable SCIM code — no manual adapter writing required</li>
+          <li>Shipped to production, serving Fortune-class enterprise customers</li>
+          <li>Reduces integration time from days to minutes for supported connectors</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ML Pipeline -->
+    <div class="project-card">
+      <div class="project-badge ml">🧠 ML Integration · Production</div>
+      <h3 class="project-title">Identity Analytics ML Pipeline</h3>
+      <p class="project-desc">
+        Async ML pipeline for enterprise identity analytics. Identity Explorer Engine transforms SCIM user data into structured CSV, 
+        uploads to S3, and coordinates with an ML engine for Group Rules Analysis and OU Analysis via heartbeat-based async coordination.
+      </p>
+      <ul class="project-highlights">
+        <li>SCIM → CSV → S3 → ML engine data pipeline</li>
+        <li>Heartbeat coordination — 60-second keep-alive prevents timeout on large datasets</li>
+        <li>Group Rules Analysis and OU Analysis surfaced to UI</li>
+        <li>Handles enterprise-scale user datasets reliably</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">AWS S3</span>
+        <span class="stack-tag">SCIM</span>
+        <span class="stack-tag">ML Engine</span>
+        <span class="stack-tag">Heartbeat Protocol</span>
+      </div>
+    </div>
+
+    <!-- Orchestration Platform -->
+    <div class="project-card">
+      <div class="project-badge platform">⚙️ Platform · 5 Years</div>
+      <h3 class="project-title">Identity Orchestration Control Plane</h3>
+      <p class="project-desc">
+        Multi-tenant IAM orchestration platform processing 10M+ identity records monthly across 5,000+ concurrent jobs. 
+        Built with 16 distributed systems design patterns including leader election, distributed mutex, bulkhead isolation, and heartbeat zombie detection.
+      </p>
+      <ul class="project-highlights">
+        <li>99.9% uptime over 5 years on AWS Elastic Beanstalk</li>
+        <li>Redis-based leader election, distributed mutex, pub/sub</li>
+        <li>Master-slave process isolation — bulkhead pattern</li>
+        <li>Hand-built SCIM 2.0 RFC 7644 filter parser with full AST</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Redis</span>
+        <span class="stack-tag">Kafka</span>
+        <span class="stack-tag">AWS</span>
+        <span class="stack-tag">SCIM 2.0</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">23 Years of<br>Engineering Leadership</h2>
+  <p class="section-subtitle">From hands-on engineer to platform architect and engineering manager.</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">2020 — 2025</div>
+      <div class="timeline-role">Engineering Manager — IAM Platform</div>
+      <div class="timeline-company">Aquera Labs India Pvt Ltd</div>
+      <div class="timeline-desc">
+        Owned architecture and engineering of an enterprise-grade multi-tenant IAM orchestration platform. 
+        Remained an everyday coder — built distributed systems primitives, SCIM adapters, REST APIs, 
+        and two production AI/ML features while leading a team of 8 engineers. Bootstrapped the team from zero, 
+        designed structured hiring processes, and established engineering culture.
+      </div>
+      <div class="timeline-metrics">
+        <div class="metric">
+          <div class="metric-value">99.9%</div>
+          <div class="metric-label">Uptime<br>over 5 years</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">70%</div>
+          <div class="metric-label">Reliability<br>improvement</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">40%</div>
+          <div class="metric-label">Release velocity<br>uplift</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2019 — 2020</div>
+      <div class="timeline-role">Technology Leader</div>
+      <div class="timeline-company">SinarMas Digital · Telecom, Indonesia</div>
+      <div class="timeline-desc">
+        Led architecture and modernisation of a telecom platform serving 30M+ users. 
+        Architected microservices backend using Java and Spring Boot. Led 15-member engineering team 
+        through complex live-traffic migration.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2018 — 2019</div>
+      <div class="timeline-role">Software Architect</div>
+      <div class="timeline-company">KPIT · Automotive, Global OEMs</div>
+      <div class="timeline-desc">
+        Architected engineering tools platform for global automotive OEMs including Jaguar Land Rover. 
+        Full-stack Java, Spring Boot, Angular development with enterprise SSO and authentication systems.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2016 — 2018</div>
+      <div class="timeline-role">Technical Manager</div>
+      <div class="timeline-company">Capgemini · Enterprise</div>
+      <div class="timeline-desc">
+        Led teams of up to 25 engineers across enterprise product and client delivery. 
+        Defined architecture, managed client relationships, and drove engineering delivery at scale.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2011 — 2016</div>
+      <div class="timeline-role">Development Supervisor</div>
+      <div class="timeline-company">FIS Global · Core Banking</div>
+      <div class="timeline-desc">
+        Led development and architecture of core banking product used by 300+ banks globally. 
+        Built offshore engineering team from scratch in a zero-defect-tolerance financial environment.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">2006 — 2011</div>
+      <div class="timeline-role">Senior Engineer / Technical Lead</div>
+      <div class="timeline-company">CGI · IBM · Banking & Telecom</div>
+      <div class="timeline-desc">
+        Senior Java engineering across banking and telecom platforms. 
+        Hibernate, JUnit, ORM design, and enterprise architecture foundations.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-label">Blog</div>
+  <h2 class="section-title">Thinking Out Loud</h2>
+  <p class="section-subtitle">Distributed systems, IAM, and engineering leadership — from 23 years of building.</p>
+
+  <div class="blog-grid">
+
+    <a href="#" class="blog-card">
+      <div class="blog-category">Distributed Systems</div>
+      <h3 class="blog-title">16 Design Patterns Inside One Orchestration Platform</h3>
+      <p class="blog-excerpt">
+        How a single Node.js codebase implements leader election, distributed mutex, bulkhead isolation, heartbeat detection, 
+        and 12 more patterns — and why each one exists.
+      </p>
+      <div class="blog-meta">Coming Soon · 12 min read</div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-category">Identity & IAM</div>
+      <h3 class="blog-title">Building a SCIM 2.0 Filter Parser From Scratch</h3>
+      <p class="blog-excerpt">
+        The RFC 7644 specification is dense. Here's how I hand-built a full abstract syntax tree parser 
+        for SCIM filter expressions — and what I learned about parser design along the way.
+      </p>
+      <div class="blog-meta">Coming Soon · 15 min read</div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-category">Generative AI</div>
+      <h3 class="blog-title">RAG in Production — What Nobody Tells You</h3>
+      <p class="blog-excerpt">
+        Building Aquera Assistant taught me that RAG is an infrastructure problem as much as an AI problem. 
+        Context injection, metadata freshness, and failure modes — the real lessons.
+      </p>
+      <div class="blog-meta">Coming Soon · 10 min read</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's Talk</h2>
+  <p class="section-subtitle">Open to Engineering Manager and Principal Architect roles in IAM, distributed systems, and cloud-native SaaS.</p>
+
+  <div class="contact-grid">
+    <div class="contact-links">
+      <a href="mailto:rajanikanth.parupudi@outlook.com" class="contact-link">
+        <div class="contact-link-icon">✉</div>
+        <div>
+          <div class="contact-link-text">Email</div>
+          <div class="contact-link-sub">rajanikanth.parupudi@outlook.com</div>
+        </div>
+      </a>
+      <a href="tel:+919945051758" class="contact-link">
+        <div class="contact-link-icon">📱</div>
+        <div>
+          <div class="contact-link-text">Phone</div>
+          <div class="contact-link-sub">+91 9945051758</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/rajanikanth-parupudi-1652a51a5" target="_blank" class="contact-link">
+        <div class="contact-link-icon">in</div>
+        <div>
+          <div class="contact-link-text">LinkedIn</div>
+          <div class="contact-link-sub">rajanikanth-parupudi-1652a51a5</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="resume-cta">
+      <h3>Download Resume</h3>
+      <p>23 years of engineering leadership, IAM expertise, distributed systems depth, and two production AI/ML features — all on one page.</p>
+      <a href="#" class="btn-white">Download PDF Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Rajanikanth Parupudi · Bangalore, India · Built with care</p>
+</footer>
+
+</body>
+</html>
